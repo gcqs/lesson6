@@ -1,4 +1,4 @@
-package com.biz.lesson.model.student;
+package com.biz.lesson.vo.studentVo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,27 +10,18 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "usr_grade")
-public class Grade {
+public class GradeVo {
 
-    /*
-    班级ID
-     */
     @Id
     @Column(length = 20,nullable = false)
     private Long gradeId;
 
-    /*
-    班级名
-     */
     @Column(length = 20,nullable = false)
     private String name;
 
     @Column(length = 10,nullable = false)
     private int num;
 
-    /*
-    平均数
-     */
     @Column(length = 10,nullable = false)
     private int avgNum;
 

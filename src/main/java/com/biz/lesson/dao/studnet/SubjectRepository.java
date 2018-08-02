@@ -23,14 +23,21 @@ public interface SubjectRepository extends PagingAndSortingRepository<Subject,Lo
 
     public List<Subject> findByStudentId(@Param("studentId")Long id);
 
+    public List<Subject> findBySubjectId(@Param("SubjectId")Long id);
+
     @Modifying
     @Transactional
-    @Query(value = "delete from usr_subject where name=(select name from usr_subject where subjectId=:subjectId)",nativeQuery = true)
-    public void deleteBySubjectId(@Param("subjectId")Long subjectId);
+    @Query(value = "delete from usr_subject where name=:name",nativeQuery = true)
+    public void deleteByName(@Param("name")String name);
+
+    @Modifying
+    @Transactional
+    @Query(value = "delete from usr_subject where studentId=:studentId",nativeQuery = true)
+    public void deleteByStudentId(@Param("studentId")Long studentId);
 
 
 
-    @Query(value = "SELECT subjectId,avgNum ,name,studentId,COUNT(subjectId) AS count,sum(avgNum)/COUNT(subjectId) AS avg FROM usr_subject GROUP BY name ORDER BY count DESC",nativeQuery = true)
+    @Query(value = "SELECT subjectId,avgNum ,name,studentId,COUNT(subjectId) AS count,sum(avgNum) AS avg FROM usr_subject GROUP BY name ORDER BY count DESC",nativeQuery = true)
     List<Subject> findAll();
 
     @Modifying

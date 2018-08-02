@@ -101,12 +101,12 @@
                                 <td width="20%">
                                     <div class="hidden-sm hidden-xs btn-group" style="text-align: center">
 
-                                        <button class="btn btn-xs btn-danger" onclick="javascript:window.location.href='manage/grade/delete.do?${item.gradeId}'">
+                                        <button class="btn btn-xs btn-danger" onclick="javascript:window.location.href='manage/grade/delete.do?gradeId=${item.gradeId}'">
                                             <i class="ace-icon fa fa-trash-o bigger-120">删除</i>
                                         </button>
 
 
-                                        <button class="btn btn-xs btn-info" onclick="javascript:window.location.href=''">
+                                        <button class="btn btn-xs btn-info" onclick="javascript:window.location.href='manage/grade/update.do?gradeId=${item.gradeId}'">
                                             <i class="ace-icon fa fa-pencil bigger-120">修改</i>
                                         </button>
 

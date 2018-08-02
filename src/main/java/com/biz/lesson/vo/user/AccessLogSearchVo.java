@@ -1,7 +1,10 @@
 package com.biz.lesson.vo.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
@@ -13,14 +16,38 @@ public class AccessLogSearchVo {
 	private String keywords;
 	private Date startTime;
 	private Date endTime;
-
-	@Min(1)
+	private Long id;
+	private String http_method;
+	private String requestParams;
 	private Integer page = 1;
 
-	@Max(100)
 	private Integer pageSize = 20;
 	
 	private String searchButton;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getHttp_method() {
+		return http_method;
+	}
+
+	public void setHttp_method(String http_method) {
+		this.http_method = http_method;
+	}
+
+	public String getRequestParams() {
+		return requestParams;
+	}
+
+	public void setRequestParams(String requestParams) {
+		this.requestParams = requestParams;
+	}
 
 	public String getCreateTimeStamp() {
 		return createTimeStamp;

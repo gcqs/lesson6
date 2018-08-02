@@ -35,7 +35,7 @@
 						<div class="row">
 							<div class="col-xs-12">
 
-								<form id="form" class="form-horizontal" role="form" action="manage/student/update.do" enctype="multipart/form-data" method="post">
+								<form id="form" class="form-horizontal" role="form" action="manage/student/save_update.do" enctype="multipart/form-data" method="post">
 									<!--头像-->
 									<div class="form-group">
 										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 上传头像 </label>
@@ -107,7 +107,7 @@
 											</button>
 
 											&nbsp; &nbsp; &nbsp;
-											<button class="btn" type="reset">
+											<button class="btn" type="reset" onclick="javascript:window.location.href='manage/student/all.do'">
 												<i class="ace-icon fa fa-undo bigger-110"></i>
 												Reset
 											</button>

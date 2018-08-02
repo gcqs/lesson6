@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -34,36 +35,44 @@ public class SubjectController {
     }
 
     @RequestMapping("/add")
-    public ModelAndView add(Subject subject){
+    public void add(Subject subject,HttpServletResponse response)throws  Exception{
 
         IdWorker worker2 = new IdWorker(2);
         subject.setSubjectId(worker2.nextId());
         subject.setAvgNum(0);
         subject.setStudentId(Long.valueOf(0));
         subjectService.add(subject);
-        ModelAndView view = new ModelAndView("manage/ace/tables");
+        response.sendRedirect("/manage/subject/all.do");
 
-        return view;
 
     }
 
     @RequestMapping("/update")
     public ModelAndView update(Subject subject){
 
-        subjectService.update(subject);
-        ModelAndView view = new ModelAndView("manage/ace/tables");
 
+        ModelAndView view = new ModelAndView("manage/ace/subjectUpdate");
+
+        view.addObject("id",subject.getSubjectId());
         return view;
 
     }
 
+    @RequestMapping("/save_update")
+    public void save_update(Subject subject, HttpServletResponse response) throws  Exception{
+
+        subjectService.update(subject);
+        response.sendRedirect("/manage/subject/all.do");
+
+    }
+
     @RequestMapping("/delete")
-    public ModelAndView delete(Subject subject){
+    public void delete(Subject subject,HttpServletResponse response) throws  Exception{
 
         subjectService.delete(subject.getSubjectId());
-        ModelAndView view = new ModelAndView("manage/ace/tables");
 
-        return view;
+
+        response.sendRedirect("/manage/subject/all.do");
 
     }
 

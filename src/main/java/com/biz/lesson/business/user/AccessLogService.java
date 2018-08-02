@@ -57,6 +57,8 @@ public class AccessLogService extends BaseService {
 	}
 	
 	public Page<AccessLogPo> searchAccessLog(AccessLogSearchVo vo,Pageable pageable){
+		Page<AccessLogSearchVo> page;
+
 		return accessLogRepository.search(vo, pageable);
 	}
 

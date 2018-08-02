@@ -59,7 +59,7 @@
                 <form action="/manage/student/save_addSubject.do" method="get">
 
 
-                    <input type="hidden" value="${noSubject.get(0).studentId}" name="studentId">
+                    <input type="hidden" value="${studentId}" name="studentId">
                 <c:forEach var="item" items="${noSubject}">
 
                     <input type="checkbox" name="name" value="${item.name}">

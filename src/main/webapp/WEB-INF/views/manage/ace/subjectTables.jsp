@@ -98,11 +98,11 @@
                             <td width="20%">
                                 <div class="hidden-sm hidden-xs btn-group" style="text-align: center">
 
-                                    <button class="btn btn-xs btn-danger" onclick="javascript:window.location.href='manage/subject/delete.do?${item.subjectId}'">
+                                    <button class="btn btn-xs btn-danger" onclick="javascript:window.location.href='manage/subject/delete.do?subjectId=${item.subjectId}'">
                                         <i class="ace-icon fa fa-trash-o bigger-120">删除</i>
                                     </button>
 
-                                    <button class="btn btn-xs btn-info" onclick="javascript:window.location.href=''">
+                                    <button class="btn btn-xs btn-info" onclick="javascript:window.location.href='manage/subject/update.do?subjectId=${item.subjectId}'">
                                         <i class="ace-icon fa fa-pencil bigger-120">修改</i>
                                     </button>
 

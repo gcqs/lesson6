@@ -1,4 +1,4 @@
-package com.biz.lesson.model.student;
+package com.biz.lesson.vo.studentVo;
 
 import org.springframework.data.annotation.Transient;
 
@@ -10,39 +10,19 @@ import javax.persistence.Table;
 /**
  * 课程
  */
-@Entity
-@Table(name = "usr_subject")
-public class Subject {
+public class SubjectVo {
 
-    /*
-    课程Id
-     */
-    @Id
-    @Column(length = 20,nullable = false)
     private Long subjectId;
 
-    /*
-    课程名
-     */
-    @Column(length = 20,nullable = false)
     private String name;
 
-    /*
-    选课的学生id
-     */
-    @Column(length = 20,nullable = false)
     private Long studentId;
 
-    /*
-    选课学生的分数
-     */
-    @Column(length = 10,nullable = false)
     private int avgNum;
 
-    @Transient
     private int count;
 
-    @Transient
+
     private int avg;
 
     public int getCount() {

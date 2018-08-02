@@ -47,14 +47,20 @@
 
             <div class="row">
                 <form action="/manage/student/save_addAvg.do" method="get">
+                    <c:if test="${subject.equals('')||subject==null}">
+                        你还没有录入成绩
+                    </c:if>
                 <c:forEach var="item" items="${subject}">
 
 
                     <span>
                         ${item.name}:
                     </span>
-                    <input type="text" name="${item.subjectId}">
+                    <input type="text" name="avgNum">
+                    <input type="hidden" name="name" value="${item.name}">
+
                 </c:forEach>
+                    <input type="hidden" value="${subject.get(0).studentId}" name="studentId">
                     <input type="submit">
                 </form>
             </div><!-- /.row -->

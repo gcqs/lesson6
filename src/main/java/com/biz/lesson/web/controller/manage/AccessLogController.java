@@ -38,6 +38,7 @@ public class AccessLogController extends BaseController {
 
 		PageRequest pageRequest = new PageRequest(pc.getCurrentPage() - 1, pc.getPageSize(), new Sort(Direction.DESC, "timestamp"));
 		Page<AccessLogPo> accesslogs = logService.searchAccessLog(vo, pageRequest);
+
 		pc.setCount(accesslogs.getTotalElements());
 
 		modelAndView.addObject("accesslogs", accesslogs);

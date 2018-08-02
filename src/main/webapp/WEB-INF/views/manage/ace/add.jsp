@@ -45,7 +45,7 @@
 										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 上传头像 </label>
 
 										<div class="col-sm-9">
-											<input type="file" name="filename">
+											<input type="file" name="file">
 										</div>
 									</div>
 									<!--学号-->
@@ -97,7 +97,7 @@
 
 										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 出生日期 </label>
 
-										<div class="col-sm-9" style="width: 500px">
+										<div class="col-sm-9" style="width: 300px">
 											<input class="form-control date-picker" name="birthday" id="id-date-picker-1" type="text" data-date-format="yyyy-mm-dd" />
 										</div>
 									</div>

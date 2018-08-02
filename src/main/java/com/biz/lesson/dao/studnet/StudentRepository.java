@@ -25,6 +25,20 @@ public interface StudentRepository extends PagingAndSortingRepository<Student,Lo
     public Student findByStudentId(@Param("studentId")Long studentId);
 
     @Modifying
+    @Transactional
     @Query(value = "update usr_student s set s.avgNum=:avgNum  where s.studentId = :studentId",nativeQuery = true)
     public void updateAvg(@Param("studentId")Long studentId,@Param("avgNum")int avgNum);
+
+    List<Student> findByGradeId(@Param("gradeId")Long gradeId);
+
+
+    @Modifying
+    @Transactional
+    @Query(value = "update usr_student s set s.gradeId=:gradeId  where s.gradeId = :oldId",nativeQuery = true)
+    public void updateGrade(@Param("gradeId")Long gradeId,@Param("oldId")Long oldId);
+
+    @Modifying
+    @Transactional
+    @Query(value = "update usr_student s set s.subjectNum = s.subjectNum+ :subjectNum where s.studentId = :studentId",nativeQuery = true)
+    public void updateSubject(@Param("studentId")Long studentId,@Param("subjectNum")int subjectNum);
 }

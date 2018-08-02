@@ -42,6 +42,41 @@
 
                             </span>
             </h3>
+            <div>
+                <form action="/manage/student/find.do" method="get">
+                    <div style="float: left">
+                    <span>学号：</span>
+                    <input type="text" name="num">
+                    <span>姓名</span>
+                    <input type="text" name="name">
+                    <span>出身日期</span>
+                    </div>
+                        <div class="row"style="width: 30%;float: left">
+                            <div class="col-xs-8 col-sm-11">
+                                <div class="input-daterange input-group">
+                                    <input type="text" class="input-sm form-control" name="start">
+                                    <span class="input-group-addon">
+																		<i class="fa fa-exchange"></i>
+																	</span>
+
+                                    <input type="text" class="input-sm form-control" name="end">
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                    <input type="submit" value="查找">
+
+
+
+                </form>
+
+
+            </div>
+            <div><br/></div>
 
 
             <!--<div class="row">
@@ -117,7 +152,7 @@
                             <td>${item.sex}</td>
 
                             <td class="hidden-480">
-                                <span class="label label-sm label-warning">${itme.date}</span>
+                                <span class="label label-sm label-warning">${item.date}</span>
                             </td>
 
                             <td width="20%">
@@ -130,7 +165,7 @@
                                         <i class="ace-icon fa fa-flag bigger-120">选课</i>
                                     </button>
 
-                                    <button class="btn btn-xs btn-info" onclick="javascript:window.location.href=''">
+                                    <button class="btn btn-xs btn-info" onclick="javascript:window.location.href='manage/student/update.do?studentId=${item.studentId}'">
                                         <i class="ace-icon fa fa-pencil bigger-120">修改</i>
                                     </button>
 
@@ -180,7 +215,7 @@
                                                     <div class="profile-info-name"> 平均分 </div>
 
                                                     <div class="profile-info-value">
-                                                        <span>${itme.avgNum}</span>
+                                                        <span>${item.avgNum}</span>
                                                     </div>
                                                 </div>
 
@@ -238,21 +273,28 @@
                 <div class="col-xs-6">
                     <div class="dataTables_paginate paging_simple_numbers" id="dynamic-table_paginate">
                         <ul class="pagination">
+
+                            <c:if test="${studentAll.number!=0}">
                             <li class="paginate_button previous disabled" aria-controls="dynamic-table" tabindex="0" id="dynamic-table_previous">
-                                <a href="#">Previous</a>
+                                <a href="/manage/student/${pagename}.do?page=${studentAll.number}">Previous</a>
                             </li>
+
+
                             <li class="paginate_button active" aria-controls="dynamic-table" tabindex="0">
-                                <a href="#">1</a>
+                                <a href="#">${studentAll.number}</a>
                             </li>
+                            </c:if>
                             <li class="paginate_button " aria-controls="dynamic-table" tabindex="0">
-                                <a href="#">2</a>
+                                <a href="">${studentAll.number+1}</a>
                             </li>
+                            <c:if test="${studentAll.number+1!=studentAll.totalPages}">
                             <li class="paginate_button " aria-controls="dynamic-table" tabindex="0">
-                                <a href="#">3</a>
+                                <a href="/manage/student/${pagename}.do?page=${studentAll.number+2}">${studentAll.number+2}</a>
                             </li>
                             <li class="paginate_button next" aria-controls="dynamic-table" tabindex="0" id="dynamic-table_next">
-                                <a href="#">Next</a>
+                                <a href="/manage/student/${pagename}.do?page=${studentAll.number+2}">Next</a>
                             </li>
+                            </c:if>
                         </ul>
                     </div>
                 </div>
@@ -260,6 +302,7 @@
 
 
         </div>
+
 
 
 
